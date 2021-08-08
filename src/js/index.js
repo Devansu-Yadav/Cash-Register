@@ -29,10 +29,12 @@ checkButton.addEventListener("click", function validateBillAndCashAmount() {
             showOutputChange();
         } else {
             showMessage("Do you wanna wash plates?");
+            hideOutputChange();
         }
     }
     else {
         showMessage("Invalid Bill Amount");
+        hideOutputChange();
     }
 })
 
@@ -47,6 +49,10 @@ function showCashGivenAndCheckButton() {
 
 function showOutputChange() {
     outputChange.style.display = "block";
+}
+
+function hideOutputChange() {
+    outputChange.style.display = "none";
 }
 
 function hideMessage() {
