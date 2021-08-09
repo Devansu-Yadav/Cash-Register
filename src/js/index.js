@@ -22,9 +22,9 @@ nextButton.addEventListener("click", function goToNextSection() {
 
 checkButton.addEventListener("click", function validateBillAndCashAmount() {
     hideMessage();
-    if(billAmount.value > 0) {
-        if(cashGiven.value >= billAmount.value) {
-            const amountToBeReturned = cashGiven.value - billAmount.value;
+    if(Number(billAmount.value) > 0) {
+        if(Number(cashGiven.value) >= Number(billAmount.value)) {
+            const amountToBeReturned = Number(cashGiven.value) - Number(billAmount.value);
             calculateChange(amountToBeReturned);
             showOutputChange();
         } else {
