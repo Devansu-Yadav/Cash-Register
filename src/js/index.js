@@ -22,18 +22,18 @@ nextButton.addEventListener("click", function goToNextSection() {
 
 checkButton.addEventListener("click", function validateBillAndCashAmount() {
     hideMessage();
-    if(Number(billAmount.value) > 0) {
+    if(Number(billAmount.value) > 0 && Number(cashGiven.value) > 0) {
         if(Number(cashGiven.value) >= Number(billAmount.value)) {
             const amountToBeReturned = Number(cashGiven.value) - Number(billAmount.value);
             calculateChange(amountToBeReturned);
             showOutputChange();
         } else {
-            showMessage("Do you wanna wash plates?");
+            showMessage("Insufficient Amount!! Please give " + (Number(billAmount.value) - Number(cashGiven.value)) + "Rs more!");
             hideOutputChange();
         }
     }
     else {
-        showMessage("Invalid Bill Amount");
+        showMessage("Invalid Bill Amount or Cash Given Amount");
         hideOutputChange();
     }
 })
